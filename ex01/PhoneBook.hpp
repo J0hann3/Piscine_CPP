@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:47:46 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/23 20:10:05 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/24 13:49:12 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,7 @@
 
 #include <string>
 
-class Contact
-{
-
-public :
-
-	std::string FirstName;
-	std::string LastName;
-	std::string Nickname;
-	std::string PhoneNumber;
-	std::string DarkestSecret;
-
-	// Contact(void);
-	// ~Contact(void);
-};
+#include "Contact.hpp"
 
 class PhoneBook {
 

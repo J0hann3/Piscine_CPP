@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:20:56 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/24 16:08:43 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/24 17:28:58 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	PhoneBook::add_contact(void)
 {
-	Contact	new_contact;
+	Contact		new_contact;
 	std::time_t	oldest_time;
 	int			oldest_index;
 	
@@ -33,8 +33,12 @@ void	PhoneBook::add_contact(void)
 	for (int i = 1; i < 8; i++)
 	{
 		if (this->contacts[i].get_time() < oldest_time)
+		{
 			oldest_index = i;
+			oldest_time = this->contacts[i].get_time();
+		}
 	}
+	std::cout <<oldest_index;
 	this->contacts[oldest_index] = new_contact;
 }
 

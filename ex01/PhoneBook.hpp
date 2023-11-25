@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:47:46 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/24 13:49:12 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/25 16:57:14 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public :
 
 	void	add_contact(void);
 	void	search_contact(void);
-	// PhoneBook(void);
-	// ~PhoneBook(void);
+	PhoneBook(void);
+	~PhoneBook(void);
 };
 #endif

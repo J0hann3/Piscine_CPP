@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:50:51 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/24 15:21:06 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/25 16:41:20 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 
 class Contact
 {
-	std::string	FirstName;
-	std::string	LastName;
-	std::string	Nickname;
-	std::string	PhoneNumber;
-	std::string	DarkestSecret;
-	std::time_t	time;
-	int			is_use;
+	std::string	_FirstName;
+	std::string	_LastName;
+	std::string	_Nickname;
+	std::string	_PhoneNumber;
+	std::string	_DarkestSecret;
+	std::time_t	_time;
+	int			_is_use;
 
 public :
 
@@ -35,7 +35,7 @@ public :
 	bool create_contact(void);
 	void print_contact_list(int index) const;
 	void print_contact_info() const;
-	// Contact(int c);
+
 	// ~Contact(void);
 };
 

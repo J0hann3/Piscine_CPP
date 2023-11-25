@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 19:04:52 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/24 16:08:35 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/25 16:46:32 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 	{
 		input.clear();
 		std::cout << "You can ADD a contact, SEARCH a contact or EXIT the phonebook" << std::endl;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (input.compare("ADD") == 0)
 			book.add_contact();
 		else if (input.compare("SEARCH") == 0)
@@ -30,4 +30,5 @@ int main()
 		else if (input.compare("EXIT") == 0)
 			return 0;
 	}
+	return 0;
 }

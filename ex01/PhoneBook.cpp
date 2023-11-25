@@ -6,11 +6,21 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:20:56 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/24 17:28:58 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/25 17:00:24 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook(void)
+{
+	std::cout << "Welcome to the Phonebook!" << std::endl;
+}
+
+PhoneBook::~PhoneBook(void)
+{
+	std::cout << "See you soon!" << std::endl;
+}
 
 void	PhoneBook::add_contact(void)
 {
@@ -45,7 +55,7 @@ void	PhoneBook::add_contact(void)
 
 void	PhoneBook::search_contact(void)
 {
-	int input;
+	std::string input;
 
 	for (int i = 0; i < 8 ; i++)
 	{
@@ -53,18 +63,11 @@ void	PhoneBook::search_contact(void)
 			this->contacts[i].print_contact_list(i);
 	}
 	std::cout << "Enter the index of the contact you want :" << std::endl;
-	std::cin >> input;
-	if (std::cin.fail())
-	{
-		std::cout << "Error : phonebook" <<input<< std::endl;
-		std::cin.clear();
-		std::cout <<std::cin.good() << std::endl;
-		return ;
-	}
-	else if (input < 0 || input >= 8 || this->contacts[input].is_empty())
+	std::getline(std::cin, input);
+	if (input.size() > 1 || input[0] < '0' || input[0] >= '8' || this->contacts[input[0] - '0'].is_empty())
 	{
 		std::cout << "Error : invalid index to search the phonebook" << std::endl;
 		return ;
 	}
-	this->contacts[input].print_contact_info();
+	this->contacts[input[0] - '0'].print_contact_info();
 }

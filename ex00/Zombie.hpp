@@ -6,15 +6,15 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:08:11 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 17:34:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/26 18:25:59 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
+
+#include <string>
+#include <iostream>
 
 class Zombie
 {

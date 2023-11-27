@@ -6,14 +6,12 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:47:46 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/25 16:57:14 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/27 12:01:20 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
-
-#include <string>
 
 #include "Contact.hpp"
 
@@ -28,4 +26,5 @@ public :
 	PhoneBook(void);
 	~PhoneBook(void);
 };
+
 #endif

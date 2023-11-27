@@ -6,13 +6,15 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:45:26 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 19:06:00 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/27 12:21:42 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon): name(name), weapon(weapon){}
+HumanA::HumanA(std::string newname, Weapon& newweapon): name(newname), weapon(newweapon)
+{
+}
 
 void HumanA::attack(void) const
 {

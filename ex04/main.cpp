@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:27:33 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/28 18:20:22 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 18:30:07 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void write_in_file(std::ifstream& ifs, std::ofstream& ofs, std::string str_chang
 				break;
 		}
 		ofs << line.substr(old_pos);
-		ofs << std::endl;
+		if (!ifs.eof())
+			ofs << std::endl;
 	}
 }
 

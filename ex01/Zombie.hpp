@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:38:38 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 18:24:59 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 18:38:11 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 class Zombie
 {
 public:
-	Zombie();
 	~Zombie();
 	void announce(void);
 	void setName(std::string str);
 private :
 	std::string name;
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

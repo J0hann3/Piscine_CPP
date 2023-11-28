@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:40:39 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 18:26:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 18:37:43 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 void Zombie::announce(void)
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-
-Zombie::Zombie(void)
-{
-
 }
 
 Zombie::~Zombie(void)

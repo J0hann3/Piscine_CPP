@@ -6,11 +6,11 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2023/11/27 12:27:28 by jvigny           ###   ########.fr        #
+#    Updated: 2023/11/28 13:11:57 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Address
+NAME = File
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

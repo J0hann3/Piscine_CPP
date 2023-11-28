@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:53:13 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 19:10:52 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 19:15:04 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Weapon::Weapon(std::string type): type(type){}
 
-std::string& Weapon::getType(void)
+std::string const & Weapon::getType(void)
 {
 	return (this->type);
 }

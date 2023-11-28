@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:39:28 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 19:07:14 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 19:14:58 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Weapon
 {
 public :
 	Weapon(std::string type);
-	std::string& getType(void);
+	std::string const & getType(void);
 	void setType(std::string type);
 private :
 	std::string type;

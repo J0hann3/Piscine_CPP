@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:14:18 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 17:33:14 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/28 18:35:54 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 Zombie* newZombie( std::string name )
 {
-	Zombie * z = new Zombie(name);
+	Zombie* z = new Zombie(name);
 	return z;
 }

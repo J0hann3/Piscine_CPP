@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:11:47 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/26 14:33:41 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/11/30 17:25:51 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int Account::_totalNbWithdrawals = 0;
 void	Account::_displayTimestamp( void )
 {
 	time_t now (std::time(NULL));
+	std::tm *time = localtime(&now);
 
-	std::cout << "[" << now << "]";
-	// std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S]");
+	std::cout << "[" << time->tm_year + 1900 << time->tm_mon + 1 << time->tm_mday << "_" \
+	<< time->tm_hour << time->tm_min << time->tm_sec << "]";
 }
 
 Account::Account(int initial_deposit) : _amount(initial_deposit)

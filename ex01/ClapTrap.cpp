@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:50:32 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/09 20:32:39 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/09 20:32:33 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,46 @@ void ClapTrap::beRepaired(unsigned int amount)
 	_hitPoint += amount;
 }
 
-int ClapTrap::getAttackDamage(void) const
-{
-	return _attackDamage;
-}
+// int ClapTrap::getAttackDamage(void) const
+// {
+// 	return _attackDamage;
+// }
 
-void ClapTrap::setAttackDamage(int attackDamage)
-{
-	std::cout << "ClapTrap " << _name << " set attack damage to " << attackDamage <<std::endl;
-	_attackDamage = attackDamage;
-}
+// void ClapTrap::setAttackDamage(int attackDamage)
+// {
+// 	std::cout << "ClapTrap " << _name << " set attack damage to " << attackDamage <<std::endl;
+// 	_attackDamage = attackDamage;
+// }
 
+// std::string ClapTrap::getName(void) const
+// {
+// 	return _name;
+// }
 
+// void ClapTrap::setName(std::string name)
+// {
+// 	std::cout << "ClapTrap " << _name << " set name to " << name <<std::endl;
+// 	_name = name;
+// }
+
+// int ClapTrap::getHitPoint(void) const
+// {
+// 	return _hitPoint;
+// }
+
+// void ClapTrap::setHitPoint(int hitPoint)
+// {
+// 	std::cout << "ClapTrap " << _name << " set hit point to " << hitPoint <<std::endl;
+// 	_hitPoint = hitPoint;
+// }
+
+// int ClapTrap::getEnergyPoint(void) const
+// {
+// 	return _energyPoint;
+// }
+
+// void ClapTrap::setEnergyPoint(int energyPoint)
+// {
+// 	std::cout << "ClapTrap " << _name << " set energy point to " << energyPoint <<std::endl;
+// 	_energyPoint = energyPoint;
+// }

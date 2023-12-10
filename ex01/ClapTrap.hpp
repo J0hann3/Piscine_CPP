@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:44:02 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/09 20:24:19 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/10 20:03:40 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,7 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
-
-
-	// std::string getName(void) const;
-	// void setName(std::string name);
-	// int getHitPoint(void) const;
-	// void setHitPoint(int hitPoint);
-	// int getEnergyPoint(void) const;
-	// void setEnergyPoint(int energyPoint);
-	// int getAttackDamage(void) const;
-	// void setAttackDamage(int attackDamage);
+	int getAttackDamage(void) const;
 };
 
 #endif

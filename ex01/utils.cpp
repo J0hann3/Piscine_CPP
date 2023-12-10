@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 19:04:52 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/10 18:26:54 by jvigny           ###   ########.fr       */
+/*   Created: 2023/12/08 13:58:47 by jvigny            #+#    #+#             */
+/*   Updated: 2023/12/08 14:04:44 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdio>
 
-void get_line_stdin(std::string& line);
-
-int	main()
+void get_line_stdin(std::string& line)
 {
-	PhoneBook book;
-	std::string	input;
-
-	while (!std::cin.fail())
+	while (1)
 	{
-		input.clear();
-		std::cout << "You can ADD a contact, SEARCH a contact or EXIT the phonebook" << std::endl;
-		get_line_stdin(input);
-		if (input.compare("ADD") == 0)
-			book.add_contact();
-		else if (input.compare("SEARCH") == 0)
-			book.search_contact();
-		else if (input.compare("EXIT") == 0)
-			return 0;
+		std::getline(std::cin, line);
+		if (std::cin.eof())
+		{
+			std::cin.clear(std::cin.goodbit);
+			std::clearerr(stdin);
+		}
+		else
+			return ;
 	}
-	return 0;
+
 }

@@ -6,7 +6,7 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2023/11/24 18:33:09 by jvigny           ###   ########.fr        #
+#    Updated: 2023/12/08 14:04:13 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ HEADERS = PhoneBook.hpp
 
 SRCS = main.cpp \
 		Contact.cpp \
-		PhoneBook.cpp
+		PhoneBook.cpp \
+		utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

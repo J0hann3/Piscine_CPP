@@ -6,12 +6,13 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:21:19 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/25 16:39:15 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/08 14:06:45 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <iomanip>
+void get_line_stdin(std::string& line);
 
 Contact::Contact(void)
 {
@@ -29,35 +30,35 @@ bool Contact::create_contact(void)
 	this->_time = std::time(NULL);
 	this->_is_use = true;
 	std::cout << "Enter First name :" << std::endl;
-	std::getline(std::cin, this->_FirstName);
+	get_line_stdin(this->_FirstName);
 	if (this->_FirstName.empty() == true)
 	{
 		std::cout << "Error : you can't have empty fields" << std::endl;
 		return (false);
 	}
 	std::cout << "Enter Last name :" << std::endl;
-	std::getline(std::cin, this->_LastName);
+	get_line_stdin(this->_LastName);
 	if (this->_LastName.empty() == true)
 	{
 		std::cout << "Error : you can't have empty fields" << std::endl;
 		return (false);
 	}
 	std::cout << "Enter Nickname :" << std::endl;
-	std::getline(std::cin, this->_Nickname);
+	get_line_stdin(this->_Nickname);
 	if (this->_Nickname.empty() == true)
 	{
 		std::cout << "Error : you can't have empty fields" << std::endl;
 		return (false);
 	}
 	std::cout << "Enter Phone number :" << std::endl;
-	std::getline(std::cin, this->_PhoneNumber);
+	get_line_stdin(this->_PhoneNumber);
 	if (this->_PhoneNumber.empty() == true)
 	{
 		std::cout << "Error : you can't have empty fields" << std::endl;
 		return (false);
 	}
 	std::cout << "Enter Darkest Secret :" << std::endl;
-	std::getline(std::cin, this->_DarkestSecret);
+	get_line_stdin(this->_DarkestSecret);
 	if (this->_DarkestSecret.empty() == true)
 	{
 		std::cout << "Error : you can't have empty fields" << std::endl;

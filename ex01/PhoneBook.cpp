@@ -6,11 +6,12 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:20:56 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/25 17:00:24 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/08 14:06:51 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+void get_line_stdin(std::string& line);
 
 PhoneBook::PhoneBook(void)
 {
@@ -63,7 +64,7 @@ void	PhoneBook::search_contact(void)
 			this->contacts[i].print_contact_list(i);
 	}
 	std::cout << "Enter the index of the contact you want :" << std::endl;
-	std::getline(std::cin, input);
+	get_line_stdin(input);
 	if (input.size() > 1 || input[0] < '0' || input[0] >= '8' || this->contacts[input[0] - '0'].is_empty())
 	{
 		std::cout << "Error : invalid index to search the phonebook" << std::endl;

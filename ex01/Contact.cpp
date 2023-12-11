@@ -84,6 +84,7 @@ void	format_contact(std::string str)
 		char test[11];
 		str.copy(test, 10, 0);
 		test[9] = '.';
+		test[10] = 0;
 		std::cout << std::setfill(' ') << std::setw(10) << test;
 	}
 	else

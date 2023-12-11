@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:20:56 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/08 14:06:51 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/11 13:28:03 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	PhoneBook::add_contact(void)
 			oldest_time = this->contacts[i].get_time();
 		}
 	}
-	std::cout <<oldest_index;
 	this->contacts[oldest_index] = new_contact;
 }
 

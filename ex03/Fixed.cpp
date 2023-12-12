@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:40:14 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/12 19:55:12 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/08 18:14:44 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ Fixed::Fixed(void): _fixed_point(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & fix): _fixed_point(fix.getRawBits())
+Fixed::Fixed(Fixed const & fix)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = fix;
 }
 
 Fixed::Fixed(int const number)
@@ -34,7 +35,7 @@ Fixed::Fixed(int const number)
 Fixed::Fixed(float const number)
 {
 	std::cout << "Float constructor called" << std::endl;
-	_fixed_point = roundf(number * (1 << Fixed::_fraction_bits));
+	_fixed_point = roundf(number * std::pow(2,Fixed::_fraction_bits));
 }
 
 Fixed::~Fixed(void)
@@ -109,29 +110,27 @@ bool Fixed::operator!=(Fixed const & fixed) const
 
 Fixed Fixed::operator+(Fixed const & fixed) const
 {
-	Fixed res;
-	res._fixed_point =_fixed_point + fixed._fixed_point;
+	Fixed res(fixed._fixed_point + _fixed_point);
 	return res;
 }
 
 Fixed Fixed::operator-(Fixed const & fixed) const
 {
-	Fixed res;
-	res._fixed_point = _fixed_point - fixed._fixed_point;
+	Fixed res(fixed._fixed_point - _fixed_point);
 	return res;
 }
 
 Fixed Fixed::operator*(Fixed const & fixed) const
 {
 	Fixed res;
-	res._fixed_point = ((int64_t)_fixed_point * (int64_t)fixed._fixed_point) >> Fixed::_fraction_bits;
+	res._fixed_point = (fixed._fixed_point * _fixed_point) >> Fixed::_fraction_bits;
 	return res;
 }
 
 Fixed Fixed::operator/(Fixed const & fixed) const
 {
 	Fixed res;
-	res._fixed_point = ((int64_t)_fixed_point << Fixed::_fraction_bits) / fixed._fixed_point;
+	res._fixed_point = (_fixed_point << Fixed::_fraction_bits) / fixed._fixed_point;
 	return res;
 }
 

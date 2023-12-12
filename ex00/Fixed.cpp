@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:40:14 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/30 19:25:15 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/12 19:54:28 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ Fixed::Fixed(void): _fixed_point(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & fix)
+Fixed::Fixed(Fixed const & fix): _fixed_point(fix.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = fix;
 }
 
 Fixed::~Fixed(void)

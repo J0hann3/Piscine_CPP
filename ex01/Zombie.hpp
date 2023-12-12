@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:38:38 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/28 18:38:11 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:16:25 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Zombie
 {
 public:
+	Zombie();
 	~Zombie();
 	void announce(void);
 	void setName(std::string str);

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:27:33 by jvigny            #+#    #+#             */
-/*   Updated: 2023/11/28 18:30:07 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:57:41 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,37 @@
 
 void write_in_file(std::ifstream& ifs, std::ofstream& ofs, std::string str_change, std::string str_find)
 {
+	std::string buffer;
 	std::string line;
 
 	while (!(ifs.eof() || ifs.bad()))
 	{
-		int old_pos = 0;
-		int new_pos = 0;
 		std::getline(ifs, line);
-		while(1)
-		{
-			size_t found = line.find(str_find, old_pos);
-			if (found != std::string::npos)
-			{
-				new_pos = found;
-				ofs << line.substr(old_pos, new_pos - old_pos);
-				ofs << str_change;
-				old_pos = new_pos + str_find.size();
-			}
-			else
-				break;
-		}
-		ofs << line.substr(old_pos);
+		buffer += line;
 		if (!ifs.eof())
-			ofs << std::endl;
+			buffer += '\n';
 	}
+
+	int old_pos = 0;
+	int new_pos = 0;
+	while(1)
+	{
+		size_t found = buffer.find(str_find, old_pos);
+		if (found != std::string::npos)
+		{
+			new_pos = found;
+			ofs << buffer.substr(old_pos, new_pos - old_pos);
+			ofs << str_change;
+			old_pos = new_pos + str_find.size();
+		}
+		else
+			break;
+	}
+	ofs << buffer.substr(old_pos);
 }
 
-int main(int argc, char *argv[])
+int replace(char *argv[])
 {
-	if (argc != 4)
-	{
-		std::cout << "Error : number of arguments invalid" << std::endl;
-		return 1;
-	}
 	std::string str_find = argv[2], str_change = argv[3];
 	if (str_find.empty() == true)
 	{
@@ -72,4 +70,15 @@ int main(int argc, char *argv[])
 	write_in_file(ifs, ofs, str_change, str_find);
 	ifs.close();
 	ofs.close();
+	return 0;
+}
+
+int main(int argc, char *argv[])
+{
+	if (argc != 4)
+	{
+		std::cout << "Error : number of arguments invalid" << std::endl;
+		return 1;
+	}
+	return replace(argv);
 }

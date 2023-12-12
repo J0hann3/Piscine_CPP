@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:40:14 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/09 16:07:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/12 19:01:12 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,20 +110,22 @@ bool Fixed::operator!=(Fixed const & fixed) const
 
 Fixed Fixed::operator+(Fixed const & fixed) const
 {
-	Fixed res(fixed._fixed_point + _fixed_point);
+	Fixed res;
+	res._fixed_point =_fixed_point + fixed._fixed_point;
 	return res;
 }
 
 Fixed Fixed::operator-(Fixed const & fixed) const
 {
-	Fixed res(fixed._fixed_point - _fixed_point);
+	Fixed res;
+	res._fixed_point = _fixed_point - fixed._fixed_point;
 	return res;
 }
 
 Fixed Fixed::operator*(Fixed const & fixed) const
 {
 	Fixed res;
-	res._fixed_point = ((int64_t)fixed._fixed_point * (int64_t)_fixed_point) >> Fixed::_fraction_bits;
+	res._fixed_point = ((int64_t)_fixed_point * (int64_t)fixed._fixed_point) >> Fixed::_fraction_bits;
 	return res;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 19:32:42 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/12 20:03:52 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/16 14:22:45 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Point::Point(Point const & point): _x(point._x), _y(point._y)
 
 Point & Point::operator=(Point const & point)
 {
+	(void)point;
 	std::cout << "ATTENTION, impossible to change the value, because _x and _y are const" <<std::endl;
 	return *this;
 }

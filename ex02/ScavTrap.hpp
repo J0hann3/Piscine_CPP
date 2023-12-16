@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:51:11 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/10 19:55:49 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/16 18:50:16 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-struct ScavTrap : public ClapTrap
+class ScavTrap : public ClapTrap
 {
 public:
 	ScavTrap();

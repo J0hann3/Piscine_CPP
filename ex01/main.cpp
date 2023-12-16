@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:21:30 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/10 19:59:45 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/10 20:20:10 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main()
 	ScavTrap Alex;
 	ScavTrap Alexandre("Alexandre");
 
+	Alexandre.guardGate();
 	Alexandre.attack("Alex");
 	Alex.takeDamage(Alexandre.getAttackDamage());
 	Alex.beRepaired(10);

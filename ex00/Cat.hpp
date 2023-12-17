@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:59 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 20:30:05 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/17 14:09:09 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public :
 	Cat(Cat const &Cat);
 	Cat const & operator=(Cat const & Cat);
 	~Cat();
-	void makeSound() const;
+	virtual void makeSound() const;
 };
 
 #endif

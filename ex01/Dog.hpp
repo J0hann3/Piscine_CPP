@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:59 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 13:49:11 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/17 14:10:13 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public :
 	Dog(Dog const &Dog);
 	Dog const & operator=(Dog const & Dog);
 	~Dog();
-	void makeSound() const;
+	virtual void makeSound() const;
 };
 
 #endif

@@ -6,17 +6,20 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:29:40 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/08 17:32:17 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/18 16:27:17 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
-#define FIXED_HPP
+# define FIXED_HPP
 
-#include <iostream>
+# include <iostream>
 
 class Fixed
 {
+private :
+	int _fixed_point;
+	static const int _fraction_bits;
 public :
 	//Constructor
 	Fixed(void);
@@ -50,10 +53,6 @@ public :
 	Fixed& operator--();
 	Fixed operator++(int);
 	Fixed operator--(int);
-
-private :
-	int _fixed_point;
-	static const int _fraction_bits;
 };
 
 std::ostream & operator<<(std::ostream & o, Fixed const & number);

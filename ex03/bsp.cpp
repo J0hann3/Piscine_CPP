@@ -6,17 +6,17 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:38:39 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 15:20:16 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/16 19:14:59 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 float	get_area(Point const & a, Point const & b, Point const & c)
 {
-	float a1 = b.getX().toFloat() - a.getX().toFloat();
-	float a3 = (b.getY().toFloat() - a.getY().toFloat());
-	float a4 = (c.getX().toFloat() - a.getX().toFloat());
-	float a2 = (c.getY().toFloat() - a.getY().toFloat());
+	float a1 = (b.getX() - a.getX()).toFloat();
+	float a3 = (b.getY() - a.getY()).toFloat();
+	float a4 = (c.getX() - a.getX()).toFloat();
+	float a2 = (c.getY() - a.getY()).toFloat();
 	float res = (a1 * a2) - (a3 * a4);
 	if (res < 0)
 		res = -res;

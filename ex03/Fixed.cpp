@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:40:14 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 19:11:40 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/18 16:30:40 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Fixed::Fixed(void): _fixed_point(0)
 
 Fixed::Fixed(Fixed const & fix)
 {
-	*this = fix;
+	_fixed_point = 	fix._fixed_point;
 }
 
 Fixed::Fixed(int const number)
@@ -31,7 +31,7 @@ Fixed::Fixed(int const number)
 
 Fixed::Fixed(float const number)
 {
-	_fixed_point = roundf(number * std::pow(2,Fixed::_fraction_bits));
+	_fixed_point = roundf(number * (1 << Fixed::_fraction_bits));
 }
 
 Fixed::~Fixed(void)
@@ -117,14 +117,14 @@ Fixed Fixed::operator-(Fixed const & fixed) const
 Fixed Fixed::operator*(Fixed const & fixed) const
 {
 	Fixed res;
-	res._fixed_point = (_fixed_point * fixed._fixed_point) >> Fixed::_fraction_bits;
+	res._fixed_point = ((int64_t)_fixed_point * (int64_t)fixed._fixed_point) >> Fixed::_fraction_bits;
 	return res;
 }
 
 Fixed Fixed::operator/(Fixed const & fixed) const
 {
 	Fixed res;
-	res._fixed_point = (_fixed_point << Fixed::_fraction_bits) / fixed._fixed_point;
+	res._fixed_point = ((int64_t)_fixed_point << Fixed::_fraction_bits) / fixed._fixed_point;
 	return res;
 }
 

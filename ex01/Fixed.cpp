@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:40:14 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/12 20:04:05 by jvigny           ###   ########.fr       */
+/*   Updated: 2023/12/18 16:15:16 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ Fixed::Fixed(void): _fixed_point(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & fix): _fixed_point(fix._fixed_point)
+Fixed::Fixed(Fixed const & fix)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	_fixed_point = fix._fixed_point;
 }
 
 Fixed::Fixed(int const number)

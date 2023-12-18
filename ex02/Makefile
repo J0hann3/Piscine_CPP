@@ -6,13 +6,13 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2023/11/30 17:16:20 by jvigny           ###   ########.fr        #
+#    Updated: 2023/12/17 17:57:47 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -fsanitize=undefined
 
 HEADERS = Fixed.hpp
 

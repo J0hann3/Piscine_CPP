@@ -11,10 +11,11 @@
 - The new class will have all the attributs and methods from the class parent
 - There is a new keyword to define a new type of access : **protected**
 
-|Access                    |public | protected| private|
-|members of the same class |    yes|       yes|     yes|
-|members of derived class  |    yes|       yes|      no|
-|not members               |    yes|        no|      no|
+| Access| public| protected| private|
+|:--------------|------------:|------------:|------------:|
+| members of the same class|yes |yes |yes |
+| members of derived class|yes |yes |no |
+| not members|yes |no |no |
 
 ```c++
 class Polygon {

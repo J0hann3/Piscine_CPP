@@ -6,7 +6,7 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2023/12/17 13:18:31 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/04 18:42:19 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,11 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 HEADERS = Dog.hpp \
 			Cat.hpp \
-			WrongCat.hpp \
-			WrongAnimal.hpp \
 			Animal.hpp \
 			Brain.hpp
 
 SRCS = Dog.cpp \
-		WrongCat.cpp \
 		Cat.cpp \
-		WrongAnimal.cpp \
 		Animal.cpp \
 		Brain.cpp \
 		main.cpp

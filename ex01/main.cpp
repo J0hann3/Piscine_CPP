@@ -6,13 +6,11 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:26:08 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/04 18:34:42 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:42:35 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include <iostream>

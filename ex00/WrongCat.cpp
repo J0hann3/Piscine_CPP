@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:35:39 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 20:33:32 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:24:33 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ WrongCat::WrongCat(WrongCat const &WrongCat)
 	std::cout << "WrongCat copy constructor call" << std::endl;
 }
 
-WrongCat const & WrongCat::operator=(WrongCat const & WrongCat)
+WrongCat & WrongCat::operator=(WrongCat const & WrongCat)
 {
 	type = WrongCat.type;
 	return (*this);

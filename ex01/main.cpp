@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:21:30 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/04 14:34:30 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:40:21 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main()
 	Alex.attack("Quentin");
 	Quentin.takeDamage(Alex.getAttackDamage());
 
+	Alex.guardGate();
 	Alex.attack("Quentin");
 	Quentin.takeDamage(Alex.getAttackDamage());
 	

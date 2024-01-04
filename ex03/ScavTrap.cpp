@@ -6,14 +6,14 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:51:13 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 16:12:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 17:12:55 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : _enPoint(50)
 {
 	_hitPoint = 100;
 	_energyPoint = 50;
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap()
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _enPoint(50)
 {
 	_hitPoint = 100;
 	_energyPoint = 50;
@@ -29,22 +29,16 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap constructor with string called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& ScavTrap)
+ScavTrap::ScavTrap(ScavTrap const& ScavTrap) : _enPoint(ScavTrap._enPoint)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	_attackDamage = ScavTrap._attackDamage;
-	_energyPoint = ScavTrap._energyPoint;
-	_name = ScavTrap._name;
-	_hitPoint = ScavTrap._hitPoint;
+	*this = ScavTrap;
 }
 
 ScavTrap& ScavTrap::operator=(ScavTrap const & ScavTrap)
 {
 	std::cout << "ScavTrap copy assignment operator called" <<std::endl;
-	_name = ScavTrap._name;
-	_hitPoint = ScavTrap._hitPoint;
-	_energyPoint = ScavTrap._energyPoint;
-	_attackDamage = ScavTrap._attackDamage;
+	this->ClapTrap::operator=(ScavTrap);
 	return (*this);
 }
 
@@ -55,9 +49,12 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (_energyPoint < 1)
+	if (ClapTrap::_energyPoint < 1)
+	{
+		std::cout << "ScavTrap " << _name << " can't attack!" << std::endl;
 		return ;
-	_energyPoint--;
+	}
+	ClapTrap::_energyPoint--;
 	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing ";
 	std::cout << _attackDamage << " points of damage!" <<std::endl;
 }

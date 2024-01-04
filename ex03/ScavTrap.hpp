@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:51:11 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 18:50:47 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 16:46:11 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 class ScavTrap : virtual public ClapTrap
 {
+protected:
+	const int _enPoint;
 public:
 	ScavTrap();
 	ScavTrap(std::string name);

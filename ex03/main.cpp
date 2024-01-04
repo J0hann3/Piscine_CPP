@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:21:30 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/16 18:39:37 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 17:13:27 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,39 @@
 int main()
 {
 	DiamondTrap Test("coucou");
-	std::cout<<sizeof(DiamondTrap)<<std::endl;
-	std::cout<<sizeof(ScavTrap)<<std::endl;
-	std::cout<<sizeof(FragTrap)<<std::endl;
-	std::cout<<sizeof(ClapTrap)<<std::endl;
-	// ClapTrap Quentin("Quentin");
-	// ScavTrap Alex;
-	// FragTrap Alexandre("Alexandre");
+	// DiamondTrap hello(Test);
+	// std::cout<<sizeof(DiamondTrap)<<std::endl;
+	// std::cout<<sizeof(ScavTrap)<<std::endl;
+	// std::cout<<sizeof(FragTrap)<<std::endl;
+	// std::cout<<sizeof(ClapTrap)<<std::endl;
+	DiamondTrap Quentin(Test);
+	DiamondTrap Alex;
+	DiamondTrap Alexandre("Alexandre");
 
-	// Alexandre.highFivesGuys();
-	// Alex.guardGate();
-	// Alexandre.attack("Alex");
-	// Alex.takeDamage(Alexandre.getAttackDamage());
-	// Alex.beRepaired(10);
+	std::cout << std::endl;
 
-	// Quentin.attack("Alexandre");
-	// Alexandre.takeDamage(Quentin.getAttackDamage());
+	Alexandre.attack("Alex");
+	Alex.takeDamage(Alexandre.getAttackDamage());
+	Alex.beRepaired(10);
 
-	// Alexandre.beRepaired(1);
+	std::cout << std::endl;
+	for (int i = 0; i < 52; i++)
+	{
+		Quentin.attack("Alexandre");
+		Alexandre.takeDamage(Quentin.getAttackDamage());
+	}
+	std::cout << std::endl;
 
-	// Quentin.attack("Alexandre");
-	// Alexandre.takeDamage(Quentin.getAttackDamage());
+	Quentin.beRepaired(1);
 
-	// Alex.attack("Alexandre");
-	// Alexandre.takeDamage(Alex.getAttackDamage());
+	Alex.attack("Quentin");
+	Quentin.takeDamage(Alex.getAttackDamage());
 
-	// Alex.attack("Quentin");
-	// Quentin.takeDamage(Alex.getAttackDamage());
-
-	// Quentin.beRepaired(12);
+	Quentin.whoAmI();
+	Alex.attack("Quentin");
+	Quentin.takeDamage(Alex.getAttackDamage());
+	
+	std::cout << std::endl;
 
 	return 0;
 }

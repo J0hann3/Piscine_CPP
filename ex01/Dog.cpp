@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:36:32 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/04 18:30:19 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:39:25 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	_brain = new Brain();
 	std::cout << "Dog default constructor call" << std::endl;
+	_brain = new Brain();
 }
 
 Dog::Dog(Dog const &Dog)
 {
+	std::cout << "Dog copy constructor call" << std::endl;
 	_brain = new Brain();
 	*_brain = *Dog._brain;
 	type = Dog.type;
-	std::cout << "Dog copy constructor call" << std::endl;
 }
 
 Dog & Dog::operator=(Dog const & Dog)

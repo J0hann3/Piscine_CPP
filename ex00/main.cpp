@@ -6,11 +6,12 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:21:30 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/09 19:47:20 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:27:27 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int main()
 {
@@ -18,22 +19,30 @@ int main()
 	ClapTrap Alex;
 	ClapTrap Alexandre("Alexandre");
 
+	std::cout << std::endl;
+
 	Alexandre.attack("Alex");
 	Alex.takeDamage(Alexandre.getAttackDamage());
 	Alex.beRepaired(10);
 
-	Quentin.setAttackDamage(7);
-	Quentin.attack("Alexandre");
-	Alexandre.takeDamage(Quentin.getAttackDamage());
+	std::cout << std::endl;
+	Quentin.setAttackDamage(3);
+	for (int i = 0; i < 12; i++)
+	{
+		Quentin.attack("Alexandre");
+		Alexandre.takeDamage(Quentin.getAttackDamage());
+	}
+	std::cout << std::endl;
 
-	Alexandre.beRepaired(1);
+	Quentin.beRepaired(1);
 
-	Quentin.attack("Alexandre");
-	Alexandre.takeDamage(Quentin.getAttackDamage());
+	Alex.attack("Quentin");
+	Quentin.takeDamage(Alex.getAttackDamage());
 
 	Alex.setAttackDamage(2);
-	Alex.attack("Alexandre");
-	Alexandre.takeDamage(Alex.getAttackDamage());
+	Alex.attack("Quentin");
+	Quentin.takeDamage(Alex.getAttackDamage());
+	Alex.beRepaired(0);
 
 	return 0;
 }

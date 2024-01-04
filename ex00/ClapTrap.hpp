@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 18:44:02 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/09 19:32:03 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:15:02 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	
 	int getAttackDamage(void) const;
 	void setAttackDamage(int attackDamage);
 };

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 20:35:44 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 14:14:36 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:36:17 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private :
 public :
 	Brain();
 	Brain(Brain const &Brain);
-	Brain const & operator=(Brain const & Brain);
+	Brain & operator=(Brain const & Brain);
 	~Brain();
 };
 

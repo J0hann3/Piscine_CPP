@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:31:18 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 14:14:16 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:36:09 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ AAnimal::AAnimal(AAnimal const &animal)
 	type = animal.type;
 }
 
-AAnimal const & AAnimal::operator=(AAnimal const & animal)
+AAnimal & AAnimal::operator=(AAnimal const & animal)
 {
 	type = animal.type;
 	return (*this);

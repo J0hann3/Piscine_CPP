@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:35:39 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 13:53:46 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:40:59 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 Cat::Cat() : AAnimal("Cat")
 {
-	_brain = new Brain();
 	std::cout << "Cat default constructor call" << std::endl;
+	_brain = new Brain();
 }
 
 Cat::Cat(Cat const &Cat)
 {
+	std::cout << "Cat copy constructor call" << std::endl;
 	type = Cat.type;
 	_brain = new Brain();
 	*_brain = *Cat._brain;
-	std::cout << "Cat copy constructor call" << std::endl;
 }
 
-Cat const & Cat::operator=(Cat const & Cat)
+Cat & Cat::operator=(Cat const & Cat)
 {
 	*_brain = *Cat._brain;
 	type = Cat.type;

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:20:59 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 14:02:42 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:36:05 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public :
 	AAnimal();
 	AAnimal(std::string type);
 	AAnimal(AAnimal const &animal);
-	AAnimal const & operator=(AAnimal const & animal);
+	AAnimal & operator=(AAnimal const & animal);
 	virtual ~AAnimal();
 	virtual void makeSound() const = 0;
 	std::string getType() const;

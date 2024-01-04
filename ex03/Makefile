@@ -6,7 +6,7 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2023/12/17 19:05:02 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/04 18:50:40 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS = Amateria.cpp \
 		Character.cpp \
 		Cure.cpp \
 		Ice.cpp \
-		IMateriaSource.cpp \
 		MateriaSource.cpp \
 		main.cpp
 

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:20:57 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 18:53:00 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:11 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ AMateria::AMateria() : _type("Default")
 AMateria::AMateria(std::string const & type) : _type(type)
 {}
 
-AMateria const & AMateria::operator=(AMateria const & materia)
+AMateria & AMateria::operator=(AMateria const & materia)
 {
 	_type = materia._type;
 	return (*this);

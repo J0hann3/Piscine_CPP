@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:18:51 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 18:20:17 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:17 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ protected:
 public:
 	AMateria();
 	AMateria(std::string const & type);
-	AMateria const & operator=(AMateria const & materia);
+	AMateria & operator=(AMateria const & materia);
 	virtual ~AMateria();
 	
 	std::string const & getType() const; //Returns the materia type

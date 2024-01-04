@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:10:04 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 18:20:43 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:45 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Ice : public AMateria
 public:
 	Ice();
 	Ice(Ice const & copy);
-	Ice const & operator=(Ice const & materia);
+	Ice & operator=(Ice const & materia);
 	~Ice();
 
 	virtual Ice* clone() const;

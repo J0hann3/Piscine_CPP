@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:45:26 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 18:01:35 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:50:19 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	MateriaSource();
 	MateriaSource(MateriaSource const & copy);
-	MateriaSource const & operator=(MateriaSource const & materiaSource);
+	MateriaSource & operator=(MateriaSource const & materiaSource);
 	virtual ~MateriaSource();
 	virtual void learnMateria(AMateria*);
 	virtual AMateria* createMateria(std::string const & type);

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:40:27 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 19:20:04 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:23 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Character::Character(Character const & copy)
 			_inventory[i] = copy._inventory[i]->clone();
 }
 
-Character const & Character::operator=(Character const & character)
+Character & Character::operator=(Character const & character)
 {
 	for (int i = 0; i < 4; i++)
 		if (!_is_empty[i])

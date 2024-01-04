@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:14:29 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 18:22:04 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:36 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cure::Cure(Cure const & copy)
 	_type = copy.getType();
 }
 
-Cure const & Cure::operator=(Cure const & materia)
+Cure & Cure::operator=(Cure const & materia)
 {
 	_type = materia.getType();
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:50:09 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 19:42:16 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:50:13 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ MateriaSource::MateriaSource(MateriaSource const & copy) : _max_size(4)
 		_source[i] = copy._source[i];
 }
 
-MateriaSource const & MateriaSource::operator=(MateriaSource const & materiaSource)
+MateriaSource & MateriaSource::operator=(MateriaSource const & materiaSource)
 {
 	_index = materiaSource._index;
 	for (int i = 0; i < _index; i++)

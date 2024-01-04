@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:12:25 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 15:30:51 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:49:39 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ protected:
 public:
 	Cure();
 	Cure(Cure const & copy);
-	Cure const & operator=(Cure const & materia);
+	Cure & operator=(Cure const & materia);
 	~Cure();
 
 	virtual Cure* clone() const;

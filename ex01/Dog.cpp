@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:36:32 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 13:21:30 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:30:19 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Dog::Dog(Dog const &Dog)
 	std::cout << "Dog copy constructor call" << std::endl;
 }
 
-Dog const & Dog::operator=(Dog const & Dog)
+Dog & Dog::operator=(Dog const & Dog)
 {
 	*_brain = *Dog._brain;
 	type = Dog.type;

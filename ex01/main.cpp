@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:26:08 by jvigny            #+#    #+#             */
-/*   Updated: 2023/12/17 13:46:54 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/04 18:34:42 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "Dog.hpp"
 #include <iostream>
 
-#define NUMBER 2
+#define NUMBER 10
 
 int main()
 {

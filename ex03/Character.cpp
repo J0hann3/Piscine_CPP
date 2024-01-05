@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:40:27 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/04 18:49:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/05 16:56:18 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void Character::equip(AMateria* m)
 	}
 	if (error)
 		std::cout << "Character inventory if full, nothing can be add" << std::endl;
-	delete m;
+	// delete m;
 }
 
 void Character::unequip(int idx)

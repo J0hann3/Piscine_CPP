@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:20:39 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 19:12:02 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/10 19:16:51 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ void Bureaucrat::decrement()
 
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & bureaucrat)
 {
-	o << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
+	o << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." <<  std::endl;
 	return o;
 }

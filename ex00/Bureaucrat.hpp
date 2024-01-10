@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:48:08 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 18:59:09 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/10 19:12:17 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,11 @@ public:
 	void decrement();
 	class TooHighException: public std::exception
 	{
-		virtual const char* what() const throw()
-		{
-			return "Bureaucrat::GradeTooHighException";
-		}
+		virtual const char* what() const throw();
 	};
 	class TooLowException: public std::exception
 	{
-		virtual const char* what() const throw()
-		{
-			return "Bureaucrat::GradeTooLowException";
-		}
+		virtual const char* what() const throw();
 	};
 };
 

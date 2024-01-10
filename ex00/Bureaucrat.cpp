@@ -6,12 +6,22 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:20:39 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 19:07:18 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/10 19:12:02 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+
+const char* Bureaucrat::TooHighException::what() const throw()
+{
+	return "Bureaucrat::GradeTooHighException";
+}
+
+const char* Bureaucrat::TooLowException::what() const throw()
+{
+	return "Bureaucrat::GradeTooLowException";
+}
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {}

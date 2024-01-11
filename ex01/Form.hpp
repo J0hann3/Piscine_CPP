@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:18:54 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 19:58:32 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/11 17:49:42 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ public:
 	int getGradeSign() const;
 	int getGradeExecute() const;
 	void beSigned(Bureaucrat const & bureaucrat);
-	class TooLowException
+	class TooLowException: public std::exception
 	{
 		virtual const char* what() const throw();
 	};
-	class TooHighException
+	class TooHighException: public std::exception
 	{
 		virtual const char* what() const throw();
 	};

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:20:39 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 20:05:18 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/11 18:12:18 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,17 @@ void Bureaucrat::decrement()
 	}
 }
 
-void Bureaucrat::signForm(Form const & form) const
+void Bureaucrat::signForm(Form & form) const
 {
 	if (form.getIsSigned() == true)
+		std::cout << "The form is already signed"  <<std::endl;
+	else if (form.getGradeSign() >= _grade)
+	{
 		std::cout << _name << " signed " << form.getName() << std::endl;
+		form.beSigned(*this);
+	}
 	else
-		std::cout << _name << " couldn't sign " << form.getName() << " because " << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName() << " because the grade is to low." << std::endl;
 }
 
 std::ostream & operator<<(std::ostream &o, Bureaucrat const & bureaucrat)

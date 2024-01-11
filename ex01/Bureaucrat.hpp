@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:48:08 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 19:58:37 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/11 18:07:08 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 	int getGrade() const;
 	void increment();
 	void decrement();
-	void signForm(Form const & form) const;
+	void signForm(Form & form) const;
 	class TooHighException: public std::exception
 	{
 		virtual const char* what() const throw();

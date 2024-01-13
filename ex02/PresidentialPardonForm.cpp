@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:58:33 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/13 13:45:23 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/13 14:25:11 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw AForm::NotsignedException();
 	else if (executor.getGrade() > _gradeExecute)
 		throw AForm::TooLowException();
-	std::cout << _name << "has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

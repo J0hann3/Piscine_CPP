@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:30:06 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/13 14:11:55 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/13 14:21:29 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 	try 
 	{
 		Bureaucrat me("me", 100);
-		ShrubberyCreationForm one;
+		ShrubberyCreationForm one("home");
 		std::cout << one;
 		me.signForm(one);
 		std::cout << one;
@@ -52,7 +52,7 @@ int main()
 	try 
 	{
 		Bureaucrat me("me", 5);
-		PresidentialPardonForm one;
+		PresidentialPardonForm one("test");
 		std::cout << one;
 		me.signForm(one);
 		std::cout << one;
@@ -83,7 +83,7 @@ int main()
 	try 
 	{
 		Bureaucrat me("me", 1);
-		RobotomyRequestForm one;
+		RobotomyRequestForm one("coucou");
 		std::cout << one;
 		me.signForm(one);
 		std::cout << one;

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:57:52 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/13 14:11:03 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/13 14:22:08 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequest", 72, 45), _target("Default")
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequest", 72, 45), _target(target)
 {}
 
 
@@ -56,7 +56,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	int random = rand();
 
 	if (random % 2 == 0)
-		std::cout << _name << " has been robotomized successfully" << std::endl;
+		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else
-		std::cout << _name << " failed to be robotomize" << std::endl;
+		std::cout << _target << " failed to be robotomize" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:20:39 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/11 18:12:18 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:36:07 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void Bureaucrat::decrement()
 void Bureaucrat::signForm(Form & form) const
 {
 	if (form.getIsSigned() == true)
-		std::cout << "The form is already signed"  <<std::endl;
+		std::cout << "The form is already signed" << std::endl;
 	else if (form.getGradeSign() >= _grade)
 	{
 		std::cout << _name << " signed " << form.getName() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:33:21 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/11 18:14:39 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:27:22 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ std::string Form::getName() const
 	return _name;
 }
 
-int Form::getIsSigned() const
+bool Form::getIsSigned() const
 {
 	return _isSigned;
 }
@@ -74,6 +74,11 @@ int Form::getGradeExecute() const
 
 void Form::beSigned(Bureaucrat const & bureaucrat)
 {
+	if (_isSigned == true)
+	{
+		std::cout << "Form is already sign" << std::endl;
+		return;
+	}
 	if (bureaucrat.getGrade() <= _gradeSign)
 	{
 		_isSigned = true;

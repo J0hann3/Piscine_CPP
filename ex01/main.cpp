@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:30:06 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/11 18:15:43 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:41:05 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int main()
 		std::cout << coucou;
 		Form form("form", 5, 10);
 		std::cout << form;
+		coucou.signForm(form);
 		coucou.signForm(form);
 	}
 	catch (std::exception &e)

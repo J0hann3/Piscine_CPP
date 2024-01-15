@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:18:54 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/11 17:49:42 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:25:59 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 	Form & operator=(Form const & form);
 	~Form();
 	std::string getName() const;
-	int getIsSigned() const;
+	bool getIsSigned() const;
 	int getGradeSign() const;
 	int getGradeExecute() const;
 	void beSigned(Bureaucrat const & bureaucrat);

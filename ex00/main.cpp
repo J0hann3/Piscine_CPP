@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:30:06 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/10 19:14:38 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:17:52 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int main()
 {
-	Bureaucrat first;
-	Bureaucrat second("Second");
-	Bureaucrat third(first);
 
 	try
 	{
+		Bureaucrat first;
+		Bureaucrat second("Second");
+		Bureaucrat third(first);
 		Bureaucrat five("five", -1);
 		std::cout << five;
 	}

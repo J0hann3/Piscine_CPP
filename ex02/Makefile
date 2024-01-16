@@ -6,7 +6,7 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/14 13:30:04 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/14 16:03:21 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/16 19:02:11 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,6 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
 
 SRCS = Base.cpp \
-		A.cpp \
-		B.cpp \
-		C.cpp \
 		Utils.cpp \
 		main.cpp
 

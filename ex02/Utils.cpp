@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 14:14:54 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/14 16:05:14 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/16 19:01:42 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,22 @@ void identify(Base& p)
 	try
 	{
 		A &tmp = dynamic_cast<A &>(p); (void)tmp;
-		std::cout << "The object is of type A" << std::endl; return ;
+		std::cout << "The object is of type A" << std::endl;
+		return ;
 	}
 	catch(std::exception& e){}
 	try
 	{
 		B &tmp = dynamic_cast<B &>(p); (void)tmp;
-		std::cout << "The object is of type B" << std::endl; return ;
+		std::cout << "The object is of type B" << std::endl;
+		return ;
 	}
 	catch(std::exception& e){}
 	try
 	{
 		C &tmp = dynamic_cast<C &>(p); (void)tmp;
-		std::cout << "The object is of type C" << std::endl; return ;
+		std::cout << "The object is of type C" << std::endl;
+		return ;
 	}
 	catch(std::exception& e){}
 	std::cout << "Unknown object" << std::endl;

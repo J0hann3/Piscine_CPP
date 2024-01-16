@@ -6,14 +6,12 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:12:36 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/16 14:14:22 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/16 18:34:42 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <stdexcept>
+#include "ScalarConverter.hpp"	
 #include <iostream>
-#include <string>
 #include <limits.h>
 #include <float.h>
 
@@ -135,7 +133,8 @@ static void print_float(std::string arg)
 
 	try 
 	{
-		arg.pop_back();
+		if (!arg.empty())
+			arg.erase (arg.size() - 1);
 		t_float = std::stof(arg, &index);
 	}
 	catch (std::out_of_range &e)

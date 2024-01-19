@@ -33,7 +33,7 @@ for (std::vector<int>::iterator it = values.begin(); it != values.end(); it++)
 
 ```
 
-#### Array
+#### Array C++11
 
 - static array = do not grow
 - store on the stack
@@ -82,9 +82,10 @@ itn main()
 
 #### Deque
 
-- Double Ended Queue
+- Double Ended Queue(vector = dynamic array)
 - easy to add somthing to the end or begin
-- hard to go through all the element
+- hard to add an element in the middle
+- support random acces to element
 
 ```c++
 
@@ -96,6 +97,21 @@ int main()
 }
 ```
 
-#### Forward_list
+#### Forward_list C++11
+
 #### List
+
+- double linked list
+
+```c++
+int main()
+{
+	std::list<int> lst;
+	lst.push_back(1);
+	lst.push_back(2);
+	lst.push_back(3);
+	lst.push_back(4);
+}
+
+```
 

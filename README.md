@@ -1,7 +1,8 @@
 # CPP_Module8
 
->
-[]()
+>This document contains the exercises of Module 08 from C++ modules
+
+[Subject CPP Module 08 42 School](https://cdn.intra.42.fr/pdf/pdf/89245/en.subject.pdf)
 
 ## New Notion
 
@@ -33,7 +34,7 @@ for (std::vector<int>::iterator it = values.begin(); it != values.end(); it++)
 
 ```
 
-#### Array C++11
+#### Array (C++11)
 
 - static array = do not grow
 - store on the stack
@@ -97,8 +98,6 @@ int main()
 }
 ```
 
-#### Forward_list C++11
-
 #### List
 
 - double linked list
@@ -115,3 +114,38 @@ int main()
 
 ```
 
+### Stack
+- last-in, first-out(LIFO)
+
+```c++
+int main()
+{
+	std::stack<int> c1;
+	c1.push(5);
+}
+```
+
+### Queue
+- first-in, first-out(FIFO)
+
+```c++
+int main()
+{
+	std::queue<float> q;
+
+	q.push(3.20);
+}
+```
+
+### Map
+- key value pair to an unique value
+
+```c++
+int main()
+{
+	std::map<std::string, int> m{{"CPU", 10}, {"GPU", 15}, {"RAM", 20}};
+
+	m["CPU"] = 25; //update
+	m["SSD"] = 30; //insert
+}
+```

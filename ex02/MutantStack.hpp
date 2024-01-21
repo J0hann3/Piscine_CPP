@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:20:12 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/20 19:45:44 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/21 22:02:53 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,78 @@
 # define MUTANTSTACK_HPP
 
 # include <stack>
+# include <deque>
+# include <iostream>
 
-template <class T>
-class MutantStack : public std::stack<T>
+template <class T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-	MutantStack();
-	MutantStack(MutantStack const & copy);
-	MutantStack & operator=(MutantStack const & assign);
-	~MutantStack();
-	
-	class Iterator {
 	public:
-		reference operator*() const;
-		Iterator& operator++();
-		Iterator& operator++(int);
-		Iterator& operator--();
-		Iterator& operator--(int);
-		bool operator==();
-		bool operator!=(); 
-		Iterator begin();
-		Iterator end();
+	MutantStack(): std::stack<T, Container>(){}
+	MutantStack(MutantStack const & copy){
+		*this = copy;
+	}
+	MutantStack & operator=(MutantStack const & assign){
+		std::stack<T, Container>::operator=(assign);
+		return *this;
+	}
+	~MutantStack(){}
+	
+	class iterator {
+	private:
+		T* _ptr;
+	public:
+		iterator(): _ptr(NULL){}
+		iterator(T* ptr): _ptr(ptr){}
+		iterator(iterator const & copy): _ptr(copy._ptr){}
+		iterator & operator=(iterator const & assign){
+			_ptr = assign._ptr;
+			return *this;
+		}
+		~iterator(){}
+		iterator& operator++(){
+			_ptr++;
+			return *this;
+		}
+		iterator& operator++(int){
+			iterator tmp = *this;
+			_ptr++;
+			return tmp;
+		}
+		iterator& operator--(){
+			_ptr--;
+			return *this;
+		}
+		iterator& operator--(int){
+			iterator tmp = *this;
+			_ptr--;
+			return tmp;
+		}
+		T* operator->(){
+			return _ptr;
+		}
+		T& operator*(){
+			if (_ptr != NULL)
+				return *_ptr;
+			throw std::exception();
+		}
+		bool operator==(const iterator & other) const{
+			return (_ptr == other._ptr);
+		}
+		bool operator!=(const iterator & other) const{
+			return (_ptr != other._ptr);
+		} 
 	};
-
-
+	iterator begin(){
+		if (this->size() == 0)
+			return iterator();
+		return iterator((&this->top()) - this->size() + 1);
+	}
+	iterator end(){
+		if (this->size() == 0)
+			return iterator();
+		return iterator((&this->top()) + 1);
+	}
 };
 
 #endif

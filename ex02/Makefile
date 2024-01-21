@@ -6,13 +6,13 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/20 19:20:10 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/21 21:39:35 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MutanStack
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
 
 SRCS = main.cpp
 

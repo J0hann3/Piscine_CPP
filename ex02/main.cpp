@@ -6,17 +6,19 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:22:51 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/20 19:34:17 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/21 22:02:00 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
+#include <list>
+#include <vector>
 
 int main()
 {
 	MutantStack<int> mstack;
-	mstack.push(5);
+	mstack.push(9);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
 	mstack.pop();
@@ -32,8 +34,8 @@ int main()
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::stack<int> s(mstack);
 	return 0;

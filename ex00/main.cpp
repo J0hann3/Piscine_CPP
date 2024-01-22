@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:47:47 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/18 12:59:50 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/22 13:01:37 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 int main( void ) {
 	int a = 2;
 	int b = 3;
-	int test = 3;
 
 	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b <<  ", test = " << test << std::endl;
+	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
 

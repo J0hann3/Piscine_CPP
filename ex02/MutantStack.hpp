@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:20:12 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/21 22:02:53 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/22 13:37:35 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ class MutantStack : public std::stack<T, Container>
 		return *this;
 	}
 	~MutantStack(){}
+
+	// using std::stack<T, Container>::c;
+	// typedef typename Container::iterator iterator;
+	
+	// iterator begin() { return c.begin(); }
+	// iterator end() { return c.end(); }
 	
 	class iterator {
 	private:
@@ -48,7 +54,7 @@ class MutantStack : public std::stack<T, Container>
 			return *this;
 		}
 		iterator& operator++(int){
-			iterator tmp = *this;
+			iterator &tmp = *this;
 			_ptr++;
 			return tmp;
 		}
@@ -57,7 +63,7 @@ class MutantStack : public std::stack<T, Container>
 			return *this;
 		}
 		iterator& operator--(int){
-			iterator tmp = *this;
+			iterator &tmp = *this;
 			_ptr--;
 			return tmp;
 		}

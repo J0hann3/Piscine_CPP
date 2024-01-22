@@ -6,13 +6,13 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/18 15:23:31 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/22 13:08:01 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Array
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -MMD --std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -MMD --std=c++98
 
 SRCS = main.cpp
 

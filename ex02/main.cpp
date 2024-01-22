@@ -6,11 +6,10 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:10:04 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/18 17:12:29 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/22 13:07:47 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
 
 int main()

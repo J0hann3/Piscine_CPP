@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:19:09 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/24 21:15:46 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/24 21:19:51 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ bool openData(std::map<std::string, float>& map)
 		if (*addr != '\0' || pos == line.size())
 		{
 			std::cout << "Error : invalid number value"  << std::endl;
-			continue ;
+			return false;
 		}
 		map.insert(std::pair<std::string, float>(date, value));
-		(void)map;
 	}
 	ifs.close();
 	return true;

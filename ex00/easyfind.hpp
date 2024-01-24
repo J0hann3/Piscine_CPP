@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:45:05 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/19 19:52:39 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/22 16:33:36 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <algorithm>
 
 template<typename T>
-void easyfind(T& container, int value)
+void easyfind(T const & container, int value)
 {
 	typename T::const_iterator it;
 	it = std::find(container.begin(), container.end(), value);

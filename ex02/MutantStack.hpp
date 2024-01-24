@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 19:20:12 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/22 13:37:35 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/24 17:48:22 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ class MutantStack : public std::stack<T, Container>
 {
 	public:
 	MutantStack(): std::stack<T, Container>(){}
-	MutantStack(MutantStack const & copy){
-		*this = copy;
-	}
+	MutantStack(MutantStack const & copy): std::stack<T, Container>(copy){}
 	MutantStack & operator=(MutantStack const & assign){
 		std::stack<T, Container>::operator=(assign);
 		return *this;

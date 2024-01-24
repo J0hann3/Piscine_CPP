@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:19:09 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/24 18:39:34 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/24 21:15:46 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,13 @@ bool openData(std::map<std::string, float>& map)
 		}
 		std::string date = line.substr(0, pos);
 		pos++;
-		float value = strtof(line.substr(pos).c_str(), NULL); //error ?
+		char *addr;
+		float value = strtof(line.substr(pos).c_str(), &addr);
+		if (*addr != '\0' || pos == line.size())
+		{
+			std::cout << "Error : invalid number value"  << std::endl;
+			continue ;
+		}
 		map.insert(std::pair<std::string, float>(date, value));
 		(void)map;
 	}
@@ -49,27 +55,31 @@ bool openData(std::map<std::string, float>& map)
 	return true;
 }
 
-bool check_format(std::pair<std::string, float> pair)
+bool check_format(std::pair<std::string, float>& pair)
 {
-	if (pair.second < 0 || pair.second > 1000)
+	if (pair.second < 0)
 	{
-		std::cout << "Error : invalid format of input file" << std::endl;
+		std::cout << "Error: not a positive number." << std::endl;
+		return false;
+	}
+	if (pair.second > 1000)
+	{
+		std::cout << "Error: too large a number." << std::endl;
 		return false;
 	}
 	struct tm time;
 	if (strptime(pair.first.c_str(), "%Y-%m-%d", &time) == NULL)
 	{
-		std::cout << "Error : invalid format of input file" << std::endl;
+		std::cout << "Error : invalid date format in input file" << std::endl;
 		return false;
 	}
 	time.tm_year = time.tm_year + 1900;
-	// std::cout << "day: " << time.tm_mday << " month: " << time.tm_mon << " year: " << time.tm_year << std::endl;
 	int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	if (time.tm_year % 400 == 0 || (time.tm_year % 100 != 0 && time.tm_year % 4 == 0))
 	{
 		if (time.tm_mon == 1 && time.tm_mday > 29)
 		{
-			std::cout << "Error : invalid format of input file" << std::endl;
+			std::cout << "Error : invalid date format in input file" << std::endl;
 			return false;
 		}
 	}
@@ -77,25 +87,31 @@ bool check_format(std::pair<std::string, float> pair)
 	{
 		if (time.tm_mday > days[time.tm_mon])
 		{
-			std::cout << "Error : invalid format of input file" << std::endl;
+			std::cout << "Error : invalid date format in input file" << std::endl;
 			return false;
 		}
 	}
 	return true;
 }
 
-void print_exchange(std::map<std::string, float> map, std::pair<std::string, float> pair)
+void print_exchange(std::map<std::string, float>& map, std::pair<std::string, float> & pair)
 {
 	for (std::map<std::string, float>::iterator it = map.begin(); it != map.end(); it++)
 	{
-		std::cout << it->first << std::endl;
+		if (it->first.compare(pair.first) > 0)
+		{
+			it--;
+			std::cout << it->first << " => " << pair.second << " = " << it->second * pair.second << std::endl;
+			return;
+		}
 	}
-	(void)pair;
+	std::map<std::string, float>::iterator tmp = map.end();
+	tmp--;
+	std::cout << tmp->first << " => " << pair.second << " = " << tmp->second * pair.second << std::endl;
 }
 
 bool openInput(char * filename, std::map<std::string, float>& map)
 {
-	(void)map;
 	std::ifstream input(filename, std::ifstream::in);
 	if (!input.is_open())
 	{
@@ -112,18 +128,25 @@ bool openInput(char * filename, std::map<std::string, float>& map)
 	while (!input.eof())
 	{
 		std::getline(input, line);
-		std::cout << line << std::endl;
+		if (line.empty())
+			continue;
 		size_t pos = line.find(" | ");
 		if (pos == std::string::npos)
 		{
-			std::cout << "Error : invalid format of input file" << std::endl;
+			std::cout << "Error : bad input => \"" << line << "\"" << std::endl;
 			continue ;
 		}
 		std::pair<std::string, float> pair;
 		pair.first = line.substr(0, pos);
-		pair.second = strtof(line.substr(pos + 3).c_str(), NULL); //error ? wrongType
+		char *addr;
+		pair.second = strtof(line.substr(pos + 3).c_str(), &addr);
 		if (!check_format(pair))
 			continue ;
+		if (*addr != '\0' || pos + 3 == line.size())
+		{
+			std::cout << "Error : invalid number value"  << std::endl;
+			continue ;
+		}
 		print_exchange(map, pair);
 	}
 	return true;

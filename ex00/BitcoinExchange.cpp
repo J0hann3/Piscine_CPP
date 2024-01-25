@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:19:09 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/24 21:19:51 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/25 15:12:28 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ bool check_format(std::pair<std::string, float>& pair)
 		return false;
 	}
 	struct tm time;
-	if (strptime(pair.first.c_str(), "%Y-%m-%d", &time) == NULL)
+	char const *date = pair.first.c_str();
+	char *res = strptime(date, "%Y-%m-%d", &time);
+	if (res == NULL || res != &date[pair.first.size()])
 	{
 		std::cout << "Error : invalid date format in input file" << std::endl;
 		return false;
@@ -100,7 +102,7 @@ void print_exchange(std::map<std::string, float>& map, std::pair<std::string, fl
 		if (it->first.compare(pair.first) > 0)
 		{
 			it--;
-			std::cout << it->first << " => " << pair.second << " = " << it->second * pair.second << std::endl;
+			std::cout << pair.first << " => " << pair.second << " = " << it->second * pair.second << std::endl;
 			return;
 		}
 	}

@@ -6,7 +6,7 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/22 17:24:08 by jvigny           ###   ########.fr        #
+#    Updated: 2024/01/25 20:26:18 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 SRCS = main.cpp \
-		BitcoinExchange.cpp
+		PmergeMe.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

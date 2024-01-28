@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:38:59 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/27 17:31:33 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/28 18:08:38 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 	void fill_vector_container(int argc, char **argv);
 	void fill_list_container(int argc, char **argv);
 	void merge_insert_vector(std::vector<unsigned int>::iterator start, std::vector<unsigned int>::iterator end);
+	void merge_insert_vector2();
 	void merge_insert_list(std::list<unsigned int>::iterator start, std::list<unsigned int>::iterator end);
 	void merge(int argc, char **argv);
 };

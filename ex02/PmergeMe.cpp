@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:53:46 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/27 17:39:11 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/28 19:20:51 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,8 @@ void PmergeMe::merge(int argc, char **argv)
 
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start);
 	fill_vector_container(argc, argv);
-	merge_insert_vector(_vector.begin(), _vector.end());
+	// merge_insert_vector(_vector.begin(), _vector.end());
+	merge_insert_vector2();
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
 
 	double timeVector = (end.tv_sec - start.tv_sec) * 1e6 + ((end.tv_nsec - start.tv_nsec) / 1000.0);
@@ -164,36 +165,70 @@ void PmergeMe::merge(int argc, char **argv)
 	std::cout << "Time to process a range of " << _list.size() << " elements with std::list :" << timeList << " us" << std::endl;
 }
 
-	
-	// if (_vector.size() < iter)
-	// 	return ;
-	// //make pairs
-	// for (std::vector<unsigned int>::iterator it = _vector.begin(); it + iter < _vector.end(); it = it + iter)
-	// {
-	// 	std::cout << *(it + (iter / 2) - 1) << " " << *(it + iter - 1) << std::endl;
-	// 	if (*(it + (iter / 2) - 1) > *(it + iter - 1))
-	// 		swap(it, iter);
-	// }
-	// print();
-	// //sort pairs
-	// merge_insert_vector(iter * 2);
-	// std::cout <<"insert" << std::endl;
-	// print();
-	// //fill res vector
-	// _resV.push_back(_vector.begin() + (iter / 2) - 1);
-	// for (std::vector<unsigned int>::iterator it = _vector.begin(); it + iter < _vector.end(); it = it + iter)
-	// 	_resV.push_back((it + iter - 1));
-	// printresV();
+static void sort_pair(std::vector<std::pair<unsigned int, unsigned int> >& tab)
+{
+	if (tab.size() < 2)
+		return;
+	size_t mid = tab.size() / 2;
+	std::vector<std::pair<unsigned int, unsigned int> > left(tab.begin(), tab.begin() + mid);
+	std::vector<std::pair<unsigned int, unsigned int> > right(tab.begin() + mid, tab.end());
+	sort_pair(left);
+	sort_pair(right);
+	size_t index = 0;
+	size_t index_left = 0;
+	size_t index_right = 0;
+	while(index_left < left.size() && index_right < right.size())
+	{
+		if (left[index_left].second < right[index_right].second)
+			tab[index++] = left[index_left++];
+		else
+			tab[index++] = right[index_right++];
+	}
+	while(index_left < left.size())
+		tab[index++] = left[index_left++];
+	while(index_right < right.size())
+		tab[index++] = right[index_right++];
+}
 
-	// std::vector<unsigned int>::iterator it = _vector.begin() + iter;
-	// while (it + iter / 2 <= _vector.end())
-	// {
-	// 	if (it + iter + iter / 2 <= _vector.end())
-	// 	{
-	// 		dichotomie(unsigned int add);//it + iter / 2 - 1
-	// 		dichotomie(unsigned int add);//it + iter - 1
-	// 	}
-	// 	else
-	// 		dichotomie(it, iter, ); //it + iter / 2 - 1
+static void dichotomie(std::vector<unsigned int> & res, unsigned int value)
+{
+	int start = 0;
+	int end = res.size() - 1;
+	while (1)
+	{
+		int middle = (end - start) / 2;
+		if (middle == 0)
+		{
+			res.insert(res.begin() + start + 1, value);
+			return ;
+		}
+		else if (value > res[start + middle])
+			start += middle;
+		else
+			end = start + middle;
+	}
+}
 
-	// }
+void PmergeMe::merge_insert_vector2()
+{
+	std::vector<std::pair<unsigned int, unsigned int> > tab;
+	for (unsigned int i = 0; i + 2 <= _vector.size(); i+=2)
+	{
+		if (_vector[i] < _vector[i + 1])
+			tab.push_back(std::make_pair(_vector[i], _vector[i + 1]));
+		else
+			tab.push_back(std::make_pair(_vector[i + 1], _vector[i]));
+	}
+	sort_pair(tab);
+	std::vector<unsigned int> res;
+	res.push_back(tab[0].first);
+	for (unsigned int i = 0; i < tab.size(); i++)
+		res.push_back(tab[i].second);
+	for (unsigned int i = 1; i + 2 <= tab.size(); i+=2)
+	{
+		dichotomie(res, tab[i + 1].first);
+		dichotomie(res, tab[i].first);
+	}
+	if (_vector.size() % 2 != 0)
+		dichotomie(res, _vector.back());
+}

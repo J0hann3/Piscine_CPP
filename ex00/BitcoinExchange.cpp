@@ -6,11 +6,13 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:19:09 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/25 15:12:28 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/29 14:45:39 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+bool check_date(std::string str);
 
 bool openData(std::map<std::string, float>& map)
 {
@@ -25,7 +27,7 @@ bool openData(std::map<std::string, float>& map)
 	std::getline(ifs, line);
 	if (!ifs.eof() && line.compare("date,exchange_rate") != 0)
 	{
-		std::cout << "Error : invalid format of data.csv" << std::endl;
+		std::cout << "Error : invalid format of data.csv " << std::endl;
 		return false;
 	}
 	while (!ifs.eof())
@@ -40,6 +42,8 @@ bool openData(std::map<std::string, float>& map)
 			return false;
 		}
 		std::string date = line.substr(0, pos);
+		if (!check_date(date))
+			return false;
 		pos++;
 		char *addr;
 		float value = strtof(line.substr(pos).c_str(), &addr);
@@ -51,6 +55,50 @@ bool openData(std::map<std::string, float>& map)
 		map.insert(std::pair<std::string, float>(date, value));
 	}
 	ifs.close();
+	return true;
+}
+
+bool check_date(std::string str)
+{
+	struct tm time;
+
+	char const *date = str.c_str();
+	char *res = strptime(date, "%Y-%m-%d", &time);
+	if (res == NULL || res != &date[str.size()] || str.size() != 10)
+	{
+		std::cout << "Error : invalid date format" << std::endl;
+		return false;
+	}
+	time.tm_year = time.tm_year + 1900;
+	int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	if (time.tm_year % 400 == 0 || (time.tm_year % 100 != 0 && time.tm_year % 4 == 0))
+	{
+		if (time.tm_mon == 1 && time.tm_mday > 29)
+		{
+			std::cout << "Error : invalid date format" << std::endl;
+			return false;
+		}
+	}
+	else
+	{
+		if (time.tm_mday > days[time.tm_mon])
+		{
+			std::cout << "Error : invalid date format" << std::endl;
+			return false;
+		}
+	}
+	size_t index = str.find("-");
+	if (index != 4)
+	{
+		std::cout << "Error : invalid date format" << std::endl;
+		return false;
+	}
+	index = str.find("-", 5);
+	if (index != 7)
+	{
+		std::cout << "Error : invalid date format" << std::endl;
+		return false;
+	}
 	return true;
 }
 
@@ -66,33 +114,7 @@ bool check_format(std::pair<std::string, float>& pair)
 		std::cout << "Error: too large a number." << std::endl;
 		return false;
 	}
-	struct tm time;
-	char const *date = pair.first.c_str();
-	char *res = strptime(date, "%Y-%m-%d", &time);
-	if (res == NULL || res != &date[pair.first.size()])
-	{
-		std::cout << "Error : invalid date format in input file" << std::endl;
-		return false;
-	}
-	time.tm_year = time.tm_year + 1900;
-	int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	if (time.tm_year % 400 == 0 || (time.tm_year % 100 != 0 && time.tm_year % 4 == 0))
-	{
-		if (time.tm_mon == 1 && time.tm_mday > 29)
-		{
-			std::cout << "Error : invalid date format in input file" << std::endl;
-			return false;
-		}
-	}
-	else
-	{
-		if (time.tm_mday > days[time.tm_mon])
-		{
-			std::cout << "Error : invalid date format in input file" << std::endl;
-			return false;
-		}
-	}
-	return true;
+	return check_date(pair.first);
 }
 
 void print_exchange(std::map<std::string, float>& map, std::pair<std::string, float> & pair)
@@ -101,6 +123,11 @@ void print_exchange(std::map<std::string, float>& map, std::pair<std::string, fl
 	{
 		if (it->first.compare(pair.first) > 0)
 		{
+			if (it == map.begin())
+			{
+				std::cout << "Error : input date is before the beginning of the data set" << std::endl;
+				return;
+			}
 			it--;
 			std::cout << pair.first << " => " << pair.second << " = " << it->second * pair.second << std::endl;
 			return;

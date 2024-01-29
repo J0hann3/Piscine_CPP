@@ -6,23 +6,23 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:53:46 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/28 19:20:51 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/01/29 13:27:27 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() : _vector(std::vector<unsigned int>()), _list(std::list<unsigned int>())
+PmergeMe::PmergeMe() : _vector(std::vector<unsigned int>()), _deque(std::deque<unsigned int>())
 {}
 
 PmergeMe::PmergeMe(PmergeMe const & copy) : _vector(std::vector<unsigned int>(copy._vector)),
-			_list(std::list<unsigned int>(copy._list))
+			_deque(std::deque<unsigned int>(copy._deque))
 {}
 
 PmergeMe & PmergeMe::operator=(PmergeMe const & assign)
 {
 	_vector = assign._vector;
-	_list = assign._list;
+	_deque = assign._deque;
 	return *this;
 }
 
@@ -44,134 +44,54 @@ static unsigned int atoui(char * str)
 	return res;
 }
 
-void PmergeMe::fill_vector_container(int argc, char **argv)
-{
-	for (int i = 1; i < argc; i++)
-	{
-		unsigned int tmp = atoui(argv[i]);
-		if (std::find(_vector.begin(), _vector.end(), tmp) != _vector.end())
-			throw std::invalid_argument("Duplicate argument");
-		_vector.push_back(tmp);
-	}
-}
-
-void PmergeMe::fill_list_container(int argc, char **argv)
-{
-	for (int i = 1; i < argc; i++)
-	{
-		unsigned int tmp = atoui(argv[i]);
-		if (std::find(_list.begin(), _list.end(), tmp) != _list.end())
-			throw std::invalid_argument("Duplicate argument");
-		_list.push_back(tmp);
-	}
-}
-
-
-void PmergeMe::merge_insert_vector(std::vector<unsigned int>::iterator start, std::vector<unsigned int>::iterator end)
-{
-	if (std::distance(start, end) < 2)
-		return;
-	int middle = std::distance(start, end) / 2;
-	merge_insert_vector(start, start + middle);
-	merge_insert_vector(start + middle, end);
-	std::vector<unsigned int> res;
-	std::vector<unsigned int>::iterator it_start = start;
-	std::vector<unsigned int>::iterator it_middle = start + middle;
-	while (it_middle != end && it_start != start + middle)
-	{
-		if (*it_start < *it_middle)
-		{
-			res.push_back(*it_start);
-			it_start++;
-		}
-		else
-		{
-			res.push_back(*it_middle);
-			it_middle++;
-		}
-	}
-	while (it_middle != end)
-		res.push_back(*(it_middle)++);
-	while (it_start != start + middle)
-		res.push_back(*(it_start)++);
-	std::swap_ranges(start, end, res.begin());
-}
-
-void PmergeMe::merge_insert_list(std::list<unsigned int>::iterator start, std::list<unsigned int>::iterator end)
-{
-	if (std::distance(start, end) < 2)
-		return;
-	int middle = std::distance(start, end) / 2;
-	std::list<unsigned int>::iterator it_middle = start;
-	for(int i = 0; i < middle; i++)
-		it_middle++;
-	merge_insert_list(start, it_middle);
-	merge_insert_list(it_middle, end);
-	std::list<unsigned int> res;
-	std::list<unsigned int>::iterator it_start = start;
-	std::list<unsigned int>::iterator it_m = it_middle;
-	while (it_m != end && it_start != it_middle)
-	{
-		if (*it_start < *it_m)
-		{
-			res.push_back(*it_start);
-			it_start++;
-		}
-		else
-		{
-			res.push_back(*it_m);
-			it_m++;
-		}
-	}
-	while (it_m != end)
-		res.push_back(*(it_m)++);
-	while (it_start != it_middle)
-		res.push_back(*(it_start)++);
-	std::swap_ranges(start, end, res.begin());
-}
-
 void PmergeMe::merge(int argc, char **argv)
 {
 	struct timespec start, end;
 
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start);
-	fill_vector_container(argc, argv);
-	// merge_insert_vector(_vector.begin(), _vector.end());
-	merge_insert_vector2();
+	merge_insert_deque(argc, argv);
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+
+	double timeDeque = (end.tv_sec - start.tv_sec) * 1e6 + ((end.tv_nsec - start.tv_nsec) / 1000.0);
+
+	
+	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start);
+	merge_insert_vector(argc, argv);
 	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
 
 	double timeVector = (end.tv_sec - start.tv_sec) * 1e6 + ((end.tv_nsec - start.tv_nsec) / 1000.0);
-
-	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start);
-	fill_list_container(argc, argv);
-	merge_insert_list(_list.begin(), _list.end());
-	clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
-
-	double timeList = (end.tv_sec - start.tv_sec) * 1e6 + ((end.tv_nsec - start.tv_nsec) / 1000.0);
-
+	
 	std::cout << "Before: ";
 	for (int i = 1; i < argc; i++)
 	{
 		std::cout << argv[i] << " ";
 	}
 	std::cout << std::endl;
+
 	std::cout << "After: ";
 	for (std::vector<unsigned int>::const_iterator it = _vector.begin(); it != _vector.end(); it++)
 	{
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+	std::cout << "After: ";
+	for (std::deque<unsigned int>::const_iterator it = _deque.begin(); it != _deque.end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector :" << timeVector << " us" << std::endl;
-	std::cout << "Time to process a range of " << _list.size() << " elements with std::list :" << timeList << " us" << std::endl;
+	std::cout << "Time to process a range of " << _deque.size() << " elements with std::list :" << timeDeque << " us" << std::endl;
 }
 
-static void sort_pair(std::vector<std::pair<unsigned int, unsigned int> >& tab)
+template<typename T>
+static void sort_pair(T& tab)
 {
 	if (tab.size() < 2)
 		return;
 	size_t mid = tab.size() / 2;
-	std::vector<std::pair<unsigned int, unsigned int> > left(tab.begin(), tab.begin() + mid);
-	std::vector<std::pair<unsigned int, unsigned int> > right(tab.begin() + mid, tab.end());
+	T left(tab.begin(), tab.begin() + mid);
+	T right(tab.begin() + mid, tab.end());
 	sort_pair(left);
 	sort_pair(right);
 	size_t index = 0;
@@ -190,7 +110,8 @@ static void sort_pair(std::vector<std::pair<unsigned int, unsigned int> >& tab)
 		tab[index++] = right[index_right++];
 }
 
-static void dichotomie(std::vector<unsigned int> & res, unsigned int value)
+template<typename T>
+static void dichotomie(T & res, unsigned int value)
 {
 	int start = 0;
 	int end = res.size() - 1;
@@ -209,26 +130,61 @@ static void dichotomie(std::vector<unsigned int> & res, unsigned int value)
 	}
 }
 
-void PmergeMe::merge_insert_vector2()
+template<typename T>
+static long create_pairs(int argc, char **argv, T &tab)
+{
+	unsigned int tmp;
+	unsigned int tmp1;
+	for (int i = 1; i + 2 <= argc; i+=2)
+	{
+		tmp = atoui(argv[i]);
+		tmp1 = atoui(argv[i + 1]);
+		if (tmp < tmp1)
+			tab.push_back(std::make_pair(tmp, tmp1));
+		else
+			tab.push_back(std::make_pair(tmp1, tmp));
+	}
+	if (argc % 2 == 0)
+		return atoui(argv[argc - 1]);
+	return -1;
+}
+
+void PmergeMe::merge_insert_vector(int argc, char **argv)
 {
 	std::vector<std::pair<unsigned int, unsigned int> > tab;
-	for (unsigned int i = 0; i + 2 <= _vector.size(); i+=2)
-	{
-		if (_vector[i] < _vector[i + 1])
-			tab.push_back(std::make_pair(_vector[i], _vector[i + 1]));
-		else
-			tab.push_back(std::make_pair(_vector[i + 1], _vector[i]));
-	}
+	long last = create_pairs(argc, argv, tab);
 	sort_pair(tab);
-	std::vector<unsigned int> res;
-	res.push_back(tab[0].first);
+	_vector.clear();
+	_vector.push_back(tab[0].first);
 	for (unsigned int i = 0; i < tab.size(); i++)
-		res.push_back(tab[i].second);
+		_vector.push_back(tab[i].second);
 	for (unsigned int i = 1; i + 2 <= tab.size(); i+=2)
 	{
-		dichotomie(res, tab[i + 1].first);
-		dichotomie(res, tab[i].first);
+		dichotomie(_vector, tab[i + 1].first);
+		dichotomie(_vector, tab[i].first);
 	}
-	if (_vector.size() % 2 != 0)
-		dichotomie(res, _vector.back());
+	if (tab.size() % 2 == 0)
+		dichotomie(_vector, tab.back().first);
+	if (last != -1)
+		dichotomie(_vector, last);
+}
+
+void PmergeMe::merge_insert_deque(int argc, char **argv)
+{
+	std::deque<std::pair<unsigned int, unsigned int> > tab;
+	long last = create_pairs(argc, argv, tab);
+	sort_pair(tab);
+	_deque.clear();
+	_deque.push_back(tab[0].first);
+	for (unsigned int i = 0; i < tab.size(); i++)
+		_deque.push_back(tab[i].second);
+	for (unsigned int i = 1; i + 2 <= tab.size(); i+=2)
+	{
+		dichotomie(_deque, tab[i + 1].first);
+		dichotomie(_deque, tab[i].first);
+	}
+	if (tab.size() % 2 == 0)
+		dichotomie(_deque, tab.back().first);
+	if (last != -1)
+		dichotomie(_deque, last);
 }

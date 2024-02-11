@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:59:58 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/20 19:18:09 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/11 19:12:28 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,42 @@ int main()
 	sp.addNumber(9);
 	sp.addNumber(11);
 	sp.print();
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-	try {
+	try
+	{
+		sp.addNumber(23);
+		sp.print();
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "Shortest Span : " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest Span : " << sp.longestSpan() << std::endl;
+
+	try
+	{
+		Span test = Span(2);
+		test.addNumber(3);
+		std::cout << "Shortest Span : " << test.shortestSpan() << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	try
+	{
 		std::vector<int> tmp(24, 12);
-		Span test = Span(25);
+		Span test = Span(24);
 		test.addNumber(tmp.begin(), tmp.end());
-		test.addNumber(6);
+		// test.addNumber(6);
 		test.print();
-	} catch (std::exception & e) {
+		std::cout << "Shortest Span : " << test.shortestSpan() << std::endl;
+		std::cout << "Longest Span : " <<test.longestSpan() << std::endl;
+	}
+	catch (std::exception & e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 
@@ -37,6 +64,8 @@ int main()
 	Span test = Span(10000);
 	test.addNumber(tmp.begin(), tmp.end());
 	test.print();
+	std::cout << "Shortest Span : " << test.shortestSpan() << std::endl;
+	std::cout << "Longest Span : " <<test.longestSpan() << std::endl;
 
 	return 0;
 }

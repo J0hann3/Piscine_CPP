@@ -6,12 +6,11 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:20:37 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/20 19:17:09 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/11 19:18:01 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <iostream> 
 
 const char * Span::SpanFullException::what() const throw()
 {
@@ -23,10 +22,10 @@ const char * Span::NotEnoughNumberException::what() const throw()
 	return ("Span doesn't contain enough argument");
 }
 
-Span::Span() : _size(0)
+Span::Span() : _tab(), _size(0)
 {}
 
-Span::Span(unsigned int size) : _size(size)
+Span::Span(unsigned int size) : _tab(), _size(size)
 {}
 
 Span::Span(Span const & copy) : _tab(copy._tab.begin(), copy._tab.end()), _size(copy._size)
@@ -49,29 +48,21 @@ void Span::addNumber(int number)
 	_tab.push_back(number);
 }
 
-static int diff_adajacent(int const & number, int const & number1)
-{
-	return ((number - number1 > 0) ? number - number1 : -(number - number1));
-}
-
 unsigned int Span::shortestSpan() const
 {
-	std::vector<int> res(_tab.size() - 1, 0);
-
 	if (_tab.size() < 2)
 		throw Span::NotEnoughNumberException();
-	std::transform(_tab.begin(), _tab.end() - 1, _tab.begin() + 1, res.begin(), diff_adajacent);
-	return *std::min_element(res.begin(), res.end());
+	std::vector<int> tmp(_tab.begin(), _tab.end());
+	std::sort(tmp.begin(), tmp.end());
+	std::adjacent_difference(tmp.begin(), tmp.end(), tmp.begin());
+	return *std::min_element(tmp.begin(), tmp.end());
 }
 
 unsigned int Span::longestSpan() const
 {
-	std::vector<int> res(_tab.size() - 1, 0);
-
 	if (_tab.size() < 2)
 		throw Span::NotEnoughNumberException();
-	std::transform(_tab.begin() + 1, _tab.end(), _tab.begin(), res.begin(), diff_adajacent);
-	return *std::max_element(res.begin(), res.end());
+	return (*std::max_element(_tab.begin(), _tab.end()) - *std::min_element(_tab.begin(), _tab.end()));
 }
 
 void Span::print() const

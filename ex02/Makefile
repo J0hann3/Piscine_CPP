@@ -6,11 +6,11 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/24 17:55:25 by jvigny           ###   ########.fr        #
+#    Updated: 2024/02/12 11:57:35 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = MutanStack
+NAME = MutantStack
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 

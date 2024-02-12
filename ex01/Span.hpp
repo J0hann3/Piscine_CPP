@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:55:32 by jvigny            #+#    #+#             */
-/*   Updated: 2024/02/11 19:18:06 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/12 11:55:13 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <algorithm>
 # include <iostream>
 # include <numeric>
-
-// # include <typeinfo>
 
 class Span
 {

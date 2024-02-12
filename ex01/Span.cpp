@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:20:37 by jvigny            #+#    #+#             */
-/*   Updated: 2024/02/11 19:18:01 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/12 11:54:10 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ const char * Span::NotEnoughNumberException::what() const throw()
 	return ("Span doesn't contain enough argument");
 }
 
-Span::Span() : _tab(), _size(0)
+Span::Span() : _tab(std::vector<int>()), _size(0)
 {}
 
-Span::Span(unsigned int size) : _tab(), _size(size)
+Span::Span(unsigned int size) : _tab(std::vector<int>()), _size(size)
 {}
 
 Span::Span(Span const & copy) : _tab(copy._tab.begin(), copy._tab.end()), _size(copy._size)

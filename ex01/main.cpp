@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 19:59:58 by jvigny            #+#    #+#             */
-/*   Updated: 2024/02/11 19:12:28 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/12 11:51:58 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 	try
 	{
 		Span test = Span(2);
-		test.addNumber(3);
+		// test.addNumber(3);
 		std::cout << "Shortest Span : " << test.shortestSpan() << std::endl;
 	}
 	catch (std::exception & e)
@@ -50,7 +50,7 @@ int main()
 		std::vector<int> tmp(24, 12);
 		Span test = Span(24);
 		test.addNumber(tmp.begin(), tmp.end());
-		// test.addNumber(6);
+		test.addNumber(6);
 		test.print();
 		std::cout << "Shortest Span : " << test.shortestSpan() << std::endl;
 		std::cout << "Longest Span : " <<test.longestSpan() << std::endl;

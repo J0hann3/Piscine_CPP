@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 14:20:37 by jvigny            #+#    #+#             */
-/*   Updated: 2024/02/12 11:54:10 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/12 14:37:33 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ unsigned int Span::shortestSpan() const
 	std::vector<int> tmp(_tab.begin(), _tab.end());
 	std::sort(tmp.begin(), tmp.end());
 	std::adjacent_difference(tmp.begin(), tmp.end(), tmp.begin());
-	return *std::min_element(tmp.begin(), tmp.end());
+	return *std::min_element(tmp.begin() + 1, tmp.end());
 }
 
 unsigned int Span::longestSpan() const

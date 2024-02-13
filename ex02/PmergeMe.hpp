@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:38:59 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/29 13:27:38 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/13 13:24:34 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ public:
 	
 	void merge_insert_vector(int argc, char **argv);
 	void merge_insert_deque(int argc, char **argv);
+
+	void printRes(int argc, char **argv, double timeVector, double timeDeque);
 };
 
 #endif

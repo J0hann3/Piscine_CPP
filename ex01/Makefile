@@ -6,13 +6,13 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/25 14:45:12 by jvigny           ###   ########.fr        #
+#    Updated: 2024/02/13 12:45:05 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = RPN
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 SRCS = main.cpp \
 		RPN.cpp

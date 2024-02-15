@@ -6,13 +6,13 @@
 #    By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 18:31:49 by jvigny            #+#    #+#              #
-#    Updated: 2024/01/28 18:19:59 by jvigny           ###   ########.fr        #
+#    Updated: 2024/02/13 15:38:33 by jvigny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PmergeMe
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 SRCS = main.cpp \
 		PmergeMe.cpp

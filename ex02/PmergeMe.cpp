@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:53:46 by jvigny            #+#    #+#             */
-/*   Updated: 2024/02/13 14:33:18 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/15 13:42:12 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,6 @@ void PmergeMe::printRes(int argc, char **argv, double timeVector, double timeDeq
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
-	// std::cout << "After: ";
-	// for (unsigned int i = 0; i < _deque.size(); i++)
-	// {
-	// 	std::cout << _deque[i] << " ";
-	// }
-	// std::cout << std::endl;
 
 	std::cout << "Time to process a range of " << _vector.size() << " elements with std::vector : " << timeVector << " ms" << std::endl;
 	std::cout << "Time to process a range of " << _deque.size() << " elements with std::deque : " << timeDeque << " ms" << std::endl;
@@ -108,6 +102,11 @@ static void dichotomie(T & res, unsigned int value)
 		res.push_back(value);
 		return ;
 	}
+	if (value <= res[0])
+	{
+		res.insert(res.begin(), value);
+		return ;
+	}
 	int start = 0;
 	int end = res.size();
 	while (1)
@@ -115,10 +114,7 @@ static void dichotomie(T & res, unsigned int value)
 		int middle = (end - start) / 2;
 		if (middle == 0)
 		{
-			if (value > res[start + middle])
-				res.insert(res.begin() + start + 1, value);
-			else
-				res.insert(res.begin() + start, value);
+			res.insert(res.begin() + start + 1, value);
 			return ;
 		}
 		else if (value > res[start + middle])
@@ -168,10 +164,14 @@ void PmergeMe::merge_insert_vector(int argc, char **argv)
 {
 	std::vector<std::pair<unsigned int, unsigned int> > tab;
 	long last = create_pairs(argc, argv, tab);
+	if (tab.size() == 0)
+	{
+		_vector.push_back(last);
+		return ;
+	}
 	sort_pair(tab);
 	_vector.clear();
-	if (tab.size() != 0)
-		_vector.push_back(tab[0].first);
+	_vector.push_back(tab[0].first);
 	for (unsigned int i = 0; i < tab.size(); i++)
 		_vector.push_back(tab[i].second);
 	for (unsigned int i = 1; i + 2 <= tab.size(); i+=2)
@@ -179,7 +179,7 @@ void PmergeMe::merge_insert_vector(int argc, char **argv)
 		dichotomie(_vector, tab[i + 1].first);
 		dichotomie(_vector, tab[i].first);
 	}
-	if (tab.size() > 1 && tab.size() % 2 == 0)
+	if (tab.size() % 2 == 0)
 		dichotomie(_vector, tab.back().first);
 	if (last != -1)
 		dichotomie(_vector, last);
@@ -189,10 +189,14 @@ void PmergeMe::merge_insert_deque(int argc, char **argv)
 {
 	std::deque<std::pair<unsigned int, unsigned int> > tab;
 	long last = create_pairs(argc, argv, tab);
+	if (tab.size() == 0)
+	{
+		_deque.push_back(last);
+		return ;
+	}
 	sort_pair(tab);
 	_deque.clear();
-	if (tab.size() != 0)
-		_deque.push_back(tab[0].first);
+	_deque.push_back(tab[0].first);
 	for (unsigned int i = 0; i < tab.size(); i++)
 		_deque.push_back(tab[i].second);
 	for (unsigned int i = 1; i + 2 <= tab.size(); i+=2)
@@ -200,7 +204,7 @@ void PmergeMe::merge_insert_deque(int argc, char **argv)
 		dichotomie(_deque, tab[i + 1].first);
 		dichotomie(_deque, tab[i].first);
 	}
-	if (tab.size() > 1 && tab.size() % 2 == 0)
+	if (tab.size() % 2 == 0)
 		dichotomie(_deque, tab.back().first);
 	if (last != -1)
 		dichotomie(_deque, last);

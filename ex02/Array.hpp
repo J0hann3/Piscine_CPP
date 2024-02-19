@@ -6,7 +6,7 @@
 /*   By: jvigny <jvigny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:06:28 by jvigny            #+#    #+#             */
-/*   Updated: 2024/01/18 15:46:08 by jvigny           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:41:57 by jvigny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ public:
 	}
 	Array & operator=(Array const & copy)
 	{
+		if (&copy == this)
+			return *this;
 		if (_size != 0)
 			delete [] _array;
 		if (copy._array == NULL)
@@ -68,6 +70,12 @@ public:
 			delete [] _array;
 	}
 	T & operator[](unsigned int index)
+	{
+		if (index >= _size || index < 0 || _array == NULL)
+			throw std::out_of_range("Try to access out of the array");
+		return (_array[index]);
+	}
+	T const & operator[](unsigned int index) const
 	{
 		if (index >= _size || index < 0 || _array == NULL)
 			throw std::out_of_range("Try to access out of the array");
